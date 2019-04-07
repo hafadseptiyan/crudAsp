@@ -1,0 +1,82 @@
+﻿@model IEnumerable<CoWorking.Models.Komunitas>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Co Working Space</title>
+    <link href="~/Content/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+    <script src="~/Content/js/jQuery-2.1.4.min.js"> </script>
+    <script src="~/Content/js/bootstrap.min.js"> </script>
+    s
+  
+</head>
+<body>
+    <!--NAVBAR-->
+    <nav class="navbar navbar-default navbar-fixed-top" style="background: #2980b9;box-shadow: 0 20px 40px -14px rgba(0,0,0,0.25);border-bottom:#2980b9 ;
+">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><img class="lg" src="#" alt=""></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right" style="margin-right:30px">
+                    <li><a style="color: #fff" href="/Home/index">HOME</a></li>
+                    <li><a style="color: #fff" href="/Home/Design">DESIGN</a></li>
+                    <li><a style="color: #fff" href="/Home/Program">PROGRAMMING</a></li>
+                    <li><a style="color: #fff" href="/Home/Photo">PHOTOGRPHY</a></li>
+                </ul>
+            </div>
+    </nav>
+
+    <!--IMAGE--><br><br><br><br>
+    <div style="margin-top: -50px">
+        <img src="~/Content/images/programer.jpg" width="100%">
+    </div>
+
+    <center>
+        <h2 style="color:#1f4d83; font-weight: bold;">
+            Programming
+            <div style="border-top: 7px solid #1f4d83;; width: 7%; margin-top: 20px"></div>
+        </h2>
+    </center><br>
+
+    <div class="container">
+
+        @foreach (var item in Model)
+        {
+            <div class="col-md-12">
+                <hr>
+                <div class="col-md-5">
+                    <img src="@Url.Content(item.pathFile)" width="100%" height="200px" />
+                </div>
+
+                <div class="col-md-7" style="margin-top:-16px">
+                    <h3>@Html.DisplayFor(modelItem => item.nama_komunitas)</h3>
+                    <p>@Html.DisplayFor(modelItem => item.kegiatan)</p>
+                </div>
+            </div>
+        }
+     
+    </div>
+    <br><br><br><br><br>
+
+    <div style="width: 100%; background: #2980b9; height: 65px; color: white; text-align: center;padding: 20px; font-size: 13pt">
+        © 2017 | CoWorking Space
+    </div>
+
+
+
+</body>
+</html>
+<!--Footer-->
+</body>
+</html>

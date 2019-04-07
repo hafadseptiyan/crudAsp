@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CoworkingModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Event">
+    <Key>
+      <PropertyRef Name="Id_event" />
+    </Key>
+    <Property Name="Id_event" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nama_event" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="jenis_event" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="waktu_event" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="deskripsi" Type="text" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Komunitas">
+    <Key>
+      <PropertyRef Name="Id_komunitas" />
+    </Key>
+    <Property Name="Id_komunitas" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nama_komunitas" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="jenis_komunitas" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="kegiatan" Type="text" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="CoworkingModel1StoreContainer">
+    <EntitySet Name="Event" EntityType="Self.Event" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Komunitas" EntityType="Self.Komunitas" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

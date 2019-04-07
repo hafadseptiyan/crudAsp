@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DataKomunitasModelStoreContainer" CdmEntityContainer="DataKomunitasEntities">
+    <EntitySetMapping Name="Admin">
+      <EntityTypeMapping TypeName="DataKomunitasModel.Admin">
+        <MappingFragment StoreEntitySet="Admin">
+          <ScalarProperty Name="id_admin" ColumnName="id_admin" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Event">
+      <EntityTypeMapping TypeName="DataKomunitasModel.Event">
+        <MappingFragment StoreEntitySet="Event">
+          <ScalarProperty Name="Id_event" ColumnName="Id_event" />
+          <ScalarProperty Name="nama_event" ColumnName="nama_event" />
+          <ScalarProperty Name="jenis_event" ColumnName="jenis_event" />
+          <ScalarProperty Name="waktu_event" ColumnName="waktu_event" />
+          <ScalarProperty Name="deskripsi" ColumnName="deskripsi" />
+          <ScalarProperty Name="namaFile" ColumnName="namaFile" />
+          <ScalarProperty Name="byteFIle" ColumnName="byteFIle" />
+          <ScalarProperty Name="pathFile" ColumnName="pathFile" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Komunitas">
+      <EntityTypeMapping TypeName="DataKomunitasModel.Komunitas">
+        <MappingFragment StoreEntitySet="Komunitas">
+          <ScalarProperty Name="Id_komunitas" ColumnName="Id_komunitas" />
+          <ScalarProperty Name="nama_komunitas" ColumnName="nama_komunitas" />
+          <ScalarProperty Name="jenis_komunitas" ColumnName="jenis_komunitas" />
+          <ScalarProperty Name="kegiatan" ColumnName="kegiatan" />
+          <ScalarProperty Name="namaFile" ColumnName="namaFile" />
+          <ScalarProperty Name="byteFile" ColumnName="byteFile" />
+          <ScalarProperty Name="pathFile" ColumnName="pathFile" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

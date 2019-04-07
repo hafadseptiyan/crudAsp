@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DataKomunitasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="id_admin" />
+    </Key>
+    <Property Name="id_admin" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Event">
+    <Key>
+      <PropertyRef Name="Id_event" />
+    </Key>
+    <Property Name="Id_event" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nama_event" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="jenis_event" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="waktu_event" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="deskripsi" Type="text" Nullable="false" />
+    <Property Name="namaFile" Type="nvarchar" MaxLength="50" />
+    <Property Name="byteFIle" Type="image" />
+    <Property Name="pathFile" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Komunitas">
+    <Key>
+      <PropertyRef Name="Id_komunitas" />
+    </Key>
+    <Property Name="Id_komunitas" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nama_komunitas" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="jenis_komunitas" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="kegiatan" Type="text" Nullable="false" />
+    <Property Name="namaFile" Type="nchar" MaxLength="50" />
+    <Property Name="byteFile" Type="image" />
+    <Property Name="pathFile" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityContainer Name="DataKomunitasModelStoreContainer">
+    <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Event" EntityType="Self.Event" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Komunitas" EntityType="Self.Komunitas" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CoworkingModel1StoreContainer" CdmEntityContainer="KomunitasEntities">
+    <EntitySetMapping Name="Event">
+      <EntityTypeMapping TypeName="CoworkingModel1.Event">
+        <MappingFragment StoreEntitySet="Event">
+          <ScalarProperty Name="Id_event" ColumnName="Id_event" />
+          <ScalarProperty Name="nama_event" ColumnName="nama_event" />
+          <ScalarProperty Name="jenis_event" ColumnName="jenis_event" />
+          <ScalarProperty Name="waktu_event" ColumnName="waktu_event" />
+          <ScalarProperty Name="deskripsi" ColumnName="deskripsi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Komunitas">
+      <EntityTypeMapping TypeName="CoworkingModel1.Komunitas">
+        <MappingFragment StoreEntitySet="Komunitas">
+          <ScalarProperty Name="Id_komunitas" ColumnName="Id_komunitas" />
+          <ScalarProperty Name="nama_komunitas" ColumnName="nama_komunitas" />
+          <ScalarProperty Name="jenis_komunitas" ColumnName="jenis_komunitas" />
+          <ScalarProperty Name="kegiatan" ColumnName="kegiatan" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,160 @@
+﻿@model CoWorking.Models.IsianKomunitas
+
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Komunitas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="~/Content/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+    <!-- Custom Theme files -->
+    <link href="~/Content/css/style.css" rel='stylesheet' type='text/css' />
+    <link href="~/Content/css/font-awesome.css" rel="stylesheet">
+    <script src="~/Content/js/jquery.min.js"> </script>
+    <script src="~/Content/js/bootstrap-filestyle.min.js"> </script>
+
+    <!-- Mainly scripts -->
+    <script src="~/Content/js/jquery.metisMenu.js"></script>
+    <script src="~/Content/js/jquery.slimscroll.min.js"></script>
+    <!-- Custom and plugin javascript -->
+    <link href="~/Content/css/custom.css" rel="stylesheet">
+    <script src="~/Content/js/custom.js"></script>
+
+</head>
+<body>
+    <div id="wrapper">
+        <!----->
+        <nav class="navbar-default navbar-static-top" role="navigation" style="background-color:#fff">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <h1> <a class="navbar-brand" href="index.html">CoWorking</a></h1>
+            </div>
+
+            <!--/.navbar-collapse -->
+            <div class="clearfix">
+
+            </div>
+
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+
+                        <li style="margin-bottom:7px">
+                            <a href="/Home/Dashboard" class=" hvr-bounce-to-right"><i class="fa fa-dashboard nav_icon "></i><span class="nav-label">Dashboards</span> </a>
+                        </li>
+                        <li style="margin-bottom:7px">
+                            <a href="/Home/FormAcara" class=" hvr-bounce-to-right"><i class="fa fa-edit nav_icon"></i> <span class="nav-label">Form Event</span> </a>
+                        </li>
+
+                        <li style="margin-bottom:7px">
+                            <a href="/Home/DataEvent" class=" hvr-bounce-to-right"><i class="fa fa-tasks nav_icon"></i> <span class="nav-label">Data Event</span> </a>
+                        </li>
+
+
+                        <li style="margin-bottom:7px">
+                            <a href="/Home/FormKomunitas" class=" hvr-bounce-to-right"><i class="fa fa-edit nav_icon"></i> <span class="nav-label">Form Komunitas</span> </a>
+                        </li>
+
+                        <li style="margin-bottom:7px">
+                            <a href="/Home/DataKomunitas" class=" hvr-bounce-to-right"><i class="fa fa-users nav_icon"></i> <span class="nav-label">Data Komunitas</span> </a>
+                        </li>
+
+                        <li style="margin-bottom:7px">
+                            <a href="/Home/Logout" class=" hvr-bounce-to-right"><i class="fa fa-sign-out nav_icon"></i> <span class="nav-label">Logout</span> </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div id="page-wrapper" class="gray-bg dashbard-1">
+            <div class="content-main">
+
+                <!--banner-->
+                <div class="banner">
+                    <h2>
+                        <a href="index.html">Home</a>
+                        <i class="fa fa-angle-right"></i>
+                        <span>Form Komunitas</span>
+                    </h2>
+                </div>
+                <!--//banner-->
+                <!--grid-->
+                <div class="grid-system">
+                    <!---->
+                    <div class="horz-grid">
+                        <div class="grid-hor">
+                            <div class="grid-form1">
+
+                                <h3>Form Komunitas</h3>
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="horizontal-form">
+
+                                        <form class="form-horizontal" action="/Home/FormKomunitas" method="post" enctype="multipart/form-data">
+
+                                            <div class="form-group">
+                                                <label for="disabledinput" class="col-sm-2 control-label">Nama Komunitas</label>
+                                                <div class="col-sm-8">
+                                                    @Html.TextBoxFor(x => x.NamaKomunitas, new { @class = "form-control1", @placeholder = "Masukkan Nama Komunitas ", @required = "required" })
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="txtarea1" class="col-sm-2 control-label">Komunitas</label>
+                                                <div class="col-sm-8">
+
+                                                    @Html.TextAreaFor(x => x.JenisKomunitas, new { @class = "form-control1", @placeholder = "Jeniskominitas", @required = "required" })
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="txtarea1" class="col-sm-2 control-label">Kegiatan</label>
+                                                <div class="col-sm-8">
+
+                                                    @Html.TextAreaFor(x => x.Kegiatan, new { @class = "form-control1", @placeholder = "Kegiatan Yang Dilakukan", @required = "required" })
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="txtarea1" class="col-sm-2 control-label">Upload Image</label>
+                                                <div class="col-sm-8">
+                                                    <input type="file" class="filestyle"
+                                                           data-buttontext="Find Image" data-placeholder="No file" required="required" name="ImageFile" />
+                                                    <div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="panel-footer">
+                                                <div class="row">
+                                                    <div class="col-sm-8 col-sm-offset-2">
+                                                        <input class="btn btn-primary" type="submit" value="SIMPAN" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+
+                            </div>
+                          </div><br /><br /><br /><br />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="copy">
+                    <p> &copy; 2018 CoWorking Space. All Rights Reserved </p>
+                </div>
+
+                <script src="~/Content/js/bootstrap.min.js"> </script>
+</body>
+</html>

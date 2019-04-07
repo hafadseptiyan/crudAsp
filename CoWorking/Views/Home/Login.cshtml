@@ -1,0 +1,46 @@
+﻿@model CoWorking.Models.Admin
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="~/Content/css/login.css" rel='stylesheet' type='text/css' />
+
+</head>
+<body>
+    <!-- main -->
+    <div class="main">
+        <div class="main-row">
+
+            <div class="agileits-top">
+                <h2>LOGIN FORM</h2>
+
+                @using (Html.BeginForm("Login", "Home", FormMethod.Post)) 
+                { 
+                    @Html.AntiForgeryToken();
+                    @Html.ValidationSummary(true)
+                    
+                    @Html.TextBoxFor(a => a.username, new { @class = "text", @placeholder = "Username",@required="required" })
+                    @Html.TextBoxFor(a => a.password, new { @class = "text", @placeholder = "Password",@type="password",@required="required" })
+
+                    <input type="submit" value="LOGIN">
+                    @Html.ValidationMessageFor(a => a.username)
+                    @Html.ValidationMessageFor(a => a.password)
+
+
+                }
+            </div>
+        </div>
+        <div class="copyright">
+            <p> © 2018 CoWorking Space . All rights reserved</p>
+        </div>
+    </div>
+    <!-- //main -->
+</body>
+</html>

@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DataKomunitasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="id_admin" />
+          </Key>
+          <Property Name="id_admin" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="Id_event" />
+          </Key>
+          <Property Name="Id_event" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nama_event" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="jenis_event" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="waktu_event" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="deskripsi" Type="text" Nullable="false" />
+          <Property Name="namaFile" Type="nvarchar" MaxLength="50" />
+          <Property Name="byteFIle" Type="image" />
+          <Property Name="pathFile" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Komunitas">
+          <Key>
+            <PropertyRef Name="Id_komunitas" />
+          </Key>
+          <Property Name="Id_komunitas" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nama_komunitas" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="jenis_komunitas" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="kegiatan" Type="text" Nullable="false" />
+          <Property Name="namaFile" Type="nchar" MaxLength="50" />
+          <Property Name="byteFile" Type="image" />
+          <Property Name="pathFile" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityContainer Name="DataKomunitasModelStoreContainer">
+          <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Event" EntityType="Self.Event" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Komunitas" EntityType="Self.Komunitas" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DataKomunitasModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="id_admin" />
+          </Key>
+          <Property Name="id_admin" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="Id_event" />
+          </Key>
+          <Property Name="Id_event" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nama_event" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="jenis_event" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="waktu_event" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="deskripsi" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="namaFile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="byteFIle" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="pathFile" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Komunitas">
+          <Key>
+            <PropertyRef Name="Id_komunitas" />
+          </Key>
+          <Property Name="Id_komunitas" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nama_komunitas" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="jenis_komunitas" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="kegiatan" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="namaFile" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="byteFile" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="pathFile" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="DataKomunitasEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Admin" EntityType="Self.Admin" />
+          <EntitySet Name="Event" EntityType="Self.Event" />
+          <EntitySet Name="Komunitas" EntityType="Self.Komunitas" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DataKomunitasModelStoreContainer" CdmEntityContainer="DataKomunitasEntities">
+          <EntitySetMapping Name="Admin">
+            <EntityTypeMapping TypeName="DataKomunitasModel.Admin">
+              <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="id_admin" ColumnName="id_admin" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Event">
+            <EntityTypeMapping TypeName="DataKomunitasModel.Event">
+              <MappingFragment StoreEntitySet="Event">
+                <ScalarProperty Name="Id_event" ColumnName="Id_event" />
+                <ScalarProperty Name="nama_event" ColumnName="nama_event" />
+                <ScalarProperty Name="jenis_event" ColumnName="jenis_event" />
+                <ScalarProperty Name="waktu_event" ColumnName="waktu_event" />
+                <ScalarProperty Name="deskripsi" ColumnName="deskripsi" />
+                <ScalarProperty Name="namaFile" ColumnName="namaFile" />
+                <ScalarProperty Name="byteFIle" ColumnName="byteFIle" />
+                <ScalarProperty Name="pathFile" ColumnName="pathFile" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Komunitas">
+            <EntityTypeMapping TypeName="DataKomunitasModel.Komunitas">
+              <MappingFragment StoreEntitySet="Komunitas">
+                <ScalarProperty Name="Id_komunitas" ColumnName="Id_komunitas" />
+                <ScalarProperty Name="nama_komunitas" ColumnName="nama_komunitas" />
+                <ScalarProperty Name="jenis_komunitas" ColumnName="jenis_komunitas" />
+                <ScalarProperty Name="kegiatan" ColumnName="kegiatan" />
+                <ScalarProperty Name="namaFile" ColumnName="namaFile" />
+                <ScalarProperty Name="byteFile" ColumnName="byteFile" />
+                <ScalarProperty Name="pathFile" ColumnName="pathFile" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

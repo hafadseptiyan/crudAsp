@@ -1,0 +1,230 @@
+﻿@model IEnumerable<CoWorking.Models.Event>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Co Working Space</title>
+    <link href="~/Content/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+    <script src="~/Content/js/jQuery-2.1.4.min.js"> </script>
+    <script src="~/Content/js/bootstrap.min.js"> </script>
+    <style>
+        .maps {
+            position: absolute;
+            top: 470%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+    </style>
+</head>
+<body>
+    <!--NAVBAR-->
+    <nav class="navbar navbar-default navbar-fixed-top" style="background: #2980b9;box-shadow: 0 20px 40px -14px rgba(0,0,0,0.25);border-bottom:#2980b9 ;
+">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><img style="margin-top:-7px" width="28px" src="~/Content/images/new_logo.png" alt="" /></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right" style="margin-right:30px">
+                    <li><a style="color: #fff" href="/Home/index">HOME</a></li>
+                    <li><a style="color: #fff" href="/Home/Design">DESIGN</a></li>
+                    <li><a style="color: #fff" href="/Home/Program">PROGRAMMING</a></li>
+                    <li><a style="color: #fff" href="/Home/Photo">PHOTOGRPHY</a></li>
+                </ul>
+            </div>
+    </nav>
+
+    <!--IMAGE--><br><br><br><br>
+    <div style="margin-top: -50px">
+        <img src="~/Content/images/bg_co.jpg" width="100%">
+    </div>
+
+    <!--Facility-->
+    <div id="idevent">
+        <div style="width: 100%; background: #dfe6e9; height: 400px">
+            <div class="container">
+                <div class="col-md-6">
+                    <center>
+                        <h2 style="color:#1f4d83;; font-weight: bold; margin-top: 50px">FACILITY</h2>
+                        <div style="border-top: 11px solid #1f4d83; width: 12%; margin-top: 20px"></div>
+                    </center>
+                    <div style="font-size: 17pt; font-weight: bold; color: #1f4d83;; padding: 50px">
+                        <p>Co Working Space</p>
+                        <p>Meeting Room</p>
+                        <p>Class Room</p>
+                        <p>Lounge</p>
+                        <p>High Speed Internet Access</p>
+                    </div>
+                </div>
+                <div class="col-md-6" style="padding: 50px">
+                    <img src="~/Content/images/facility2.png" width="100%" style="margin-top: 90px">
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!--Komunitas-->
+
+    <div style="width: 100%; background: #ecf0f1; height: 640px; padding: 10px">
+        <div class="container">
+            <div class="row">
+                <center>
+                    <h2 style="color:#1f4d83; font-weight: bold;">
+                        KOMUNITAS
+                        <div style="border-top: 11px solid #48ccd6; width: 7%; margin-top: 20px"></div>
+                    </h2>
+                </center><br>
+
+                <!--Kategori 1-->
+                <div class="col-md-4">
+                    <a href="/Home/Program">
+                        <div style=" width: 100%;height: 450px;background-color: #bdc3c7;">
+                            <img src="~/Content/images/coProgram.png">
+                        </div>
+                    </a>
+                </div>
+
+                <!--Kategori 2-->
+                <div class="col-md-4">
+                    <a href="/Home/Photo">
+                        <div style=" width: 100%;height: 450px;background-color: #bdc3c7;">
+                            <img src="~/Content/images/coPhoto.png">
+                        </div>
+                    </a>
+                </div>
+
+                <!--Kategori 3-->
+                <div class="col-md-4">
+                    <a href="/Home/Design">
+
+                        <div style=" width: 100%;height: 450px;background-color: #bdc3c7;">
+                            <img src="~/Content/images/coDesain.jpg">
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!--Event1-->
+    <div style="width: 100%; background: #2980b9; height: 640px; padding: 10px">
+        <div class="container">
+            <div class="row">
+                <center>
+                    <h2 style="color:#fff; font-weight: bold;">
+                        Event
+                        <div style="border-top: 11px solid #48ccd6; width: 7%; margin-top: 20px"></div>
+                    </h2>
+                </center><br>
+                @foreach (var item in Model)
+                    {
+                <!--Event1-->
+                <div class="col-md-6">
+                  
+                    <div style=" width: 100%;height: 350px;background-color: #bdc3c7;">
+                        <!-- Hover trigger modal-->
+                        <a href="" data-toggle="modal" data-target="#modalPush" style="float: left;">
+                            <img src="@Url.Content(item.pathFile)">
+                        </a>
+                        <!--Modal: modalPush-->
+                        <div class="modal fade" id="modalPush" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                             aria-hidden="true">
+                            <div class="modal-dialog modal-notify modal-info" role="document">
+                                <!--Content-->
+                                <div class="modal-content text-center">
+                                    <!--Header-->
+                                    <div class="modal-header d-flex justify-content-center">
+                                        <h2 class="heading" style="color:#2980b9; font-weight: bold;">@Html.DisplayFor(modelItem => item.nama_event)</h2>
+                                    </div>
+                                    <!--Body-->
+                                    <div class="modal-body">
+                                        <i class="fa fa-bell fa-4x animated rotateIn mb-4"></i><br />
+                                        <img src="@Url.Content(item.pathFile)" width="100%">
+                                        <p><b>Deskripsi :</b> @Html.DisplayFor(modelItem => item.deskripsi)</p>
+                                        <h5><b>Jenis Event :</b>@Html.DisplayFor(modelItem => item.jenis_event)</h5>
+
+                                    </div>
+                                    <!--Footer-->
+                                    <div class="modal-footer flex-center">
+                                        <a type="button" class="btn btn-outline-primary waves-effect" data-dismiss="modal">Close</a>
+                                    </div>
+                                </div>
+                                <!--/.Content-->
+                            </div>
+                        </div>
+                        <!--Modal: modalPush-->
+                    </div>
+                </div>
+
+                }
+            </div>
+        </div>
+    </div>
+
+
+    <div style="width: 100%; background: #2980b9; height: 840px">
+        <img src="~/Content/images/obj.png" width="100%" height="100%">
+        <div class="maps">
+            <center>
+                <h2 style="color:#fff; font-weight: bold;margin-top: -95px">
+                    Peta Lokasi
+                    <div style="border-top: 11px solid #fff; width: 7%; margin-top: 20px"></div>
+                </h2>
+            </center><br>
+            <div class="mapouter" style="height:400px;width:1170px;">
+                <div class="gmap_canvas">
+                    <iframe width="1620" height="500" id="gmap_canvas"
+                            src="https://maps.google.com/maps?q=vokasi universitas brawijaya&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                            frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+              
+                    <style>
+                        .mapouter {
+                            overflow: hidden;
+                            height: 500px;
+                            width: 600px;
+                        }
+
+                        .gmap_canvas {
+                            background: none !important;
+                            height: 500px;
+                            width: 600px;
+                        }
+                    </style></div>
+                  </div>
+                <style>
+                    .mapouter {
+                        overflow: hidden;
+                        height: 900px;
+                        width: 300px;
+                    }
+
+                    .gmap_canvas {
+                        background: none !important;
+                        height: 500px;
+                        width: 600px;
+                    }
+                </style>
+            </div>
+        </div>
+
+        <div style="width: 100%; background: #2980b9; height: 65px; color: white; text-align: center;padding: 20px; font-size: 13pt">
+            © 2018 | CoWorking Space
+        </div>
+    </div>
+
+</body>
+</html>
